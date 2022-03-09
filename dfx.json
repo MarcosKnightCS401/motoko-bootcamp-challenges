@@ -8,18 +8,9 @@
       "main": "src/challenges2/day_2.mo",
       "type": "motoko"
     },
-    "challenges_assets": {
-      "dependencies": [
-        "challenges"
-      ],
-      "frontend": {
-        "entrypoint": "src/challenges_assets/src/index.html"
-      },
-      "source": [
-        "src/challenges_assets/assets",
-        "dist/challenges_assets/"
-      ],
-      "type": "assets"
+    "challenges3": {
+      "main": "src/challenges3/day_3.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
