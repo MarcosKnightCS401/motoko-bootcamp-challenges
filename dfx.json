@@ -12,6 +12,11 @@
       "main": "src/challenges3/day_3.mo",
       "type": "motoko"
     }
+    ,
+    "challenges4": {
+      "main": "src/challenges4/main.mo",
+      "type": "motoko"
+    }
   },
   "defaults": {
     "build": {
