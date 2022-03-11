@@ -11,10 +11,13 @@
     "challenges3": {
       "main": "src/challenges3/day_3.mo",
       "type": "motoko"
-    }
-    ,
+    },
     "challenges4": {
       "main": "src/challenges4/main.mo",
+      "type": "motoko"
+    },
+    "challenges5": {
+      "main": "src/challenges5/day_5.mo",
       "type": "motoko"
     }
   },
