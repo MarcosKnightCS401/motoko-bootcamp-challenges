@@ -19,6 +19,14 @@
     "challenges5": {
       "main": "src/challenges5/day_5.mo",
       "type": "motoko"
+    },
+    "challenges6": {
+      "main": "src/challenges6/main.mo",
+      "type": "motoko"
+    },
+    "challenges6_2": {
+      "main": "src/challenges6_2/main.mo",
+      "type": "motoko"
     }
   },
   "defaults": {
