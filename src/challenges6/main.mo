@@ -12,13 +12,15 @@ import Debug "mo:base/Debug";
 import HTTP "http";
 
 actor {
+  type TokenIndex = Nat;
+
   type Error = {
     #critical;
     #minor;
   };
 
-  stable var registryEntries : [(Nat, Principal)] = [];
-  let registry = HashMap.fromIter<Nat,Principal>(registryEntries.vals(), 0, Nat.equal, Hash.hash);
+  stable var registryEntries : [(TokenIndex, Principal)] = [];
+  let registry = HashMap.fromIter<TokenIndex,Principal>(registryEntries.vals(), 0, Nat.equal, Hash.hash);
   stable var nextTokenIndex = 0;
 
   public shared({caller}) func mint(): async Result.Result<(), Text> {
@@ -31,7 +33,7 @@ actor {
     };
   };
 
-  public func transfer(to: Principal, tokenIndex: Nat): async Result.Result<(), Text> {
+  public func transfer(to: Principal, tokenIndex: TokenIndex): async Result.Result<(), Text> {
     if(Principal.isAnonymous(to)) {
       return #err("You need to be authenticated to register");
     } else {
@@ -42,8 +44,8 @@ actor {
 
   public shared({caller}) func balance(): async [Nat] {
     let registryKeys = registry.keys();
-    let filteredRegistry = Iter.filter(registry.entries(), func((tokenIndex: Nat, currentPrincipal: Principal)) : Bool { currentPrincipal == caller });
-    var balanceList = List.nil<Nat>();
+    let filteredRegistry = Iter.filter(registry.entries(), func((tokenIndex: TokenIndex, currentPrincipal: Principal)) : Bool { currentPrincipal == caller });
+    var balanceList = List.nil<TokenIndex>();
 
     for(entry in filteredRegistry) {
       balanceList := List.push(entry.0, balanceList);
